@@ -61,6 +61,10 @@ function populateSelect(selector, items) {
   });
 }
 
+function sync(v1, v2) {
+  v2.currentTime = v1.currentTime;
+}
+
 // Player controls
 $('#controls-play').on('click', function() {
   window.player_left.play();
@@ -69,6 +73,7 @@ $('#controls-play').on('click', function() {
 $('#controls-pause').on('click', function() {
   window.player_left.pause();
   window.player_right.pause();
+  sync(window.player_left, window.player_right)
 });
 $('#controls-stop').on('click', function() {
   window.player_left.stop();
